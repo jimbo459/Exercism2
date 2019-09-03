@@ -47,3 +47,12 @@ Inspired by an exercise created by a professor Della Paolera in Argentina
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+
+
+TODO:
+
+> circle = 0
+Outer circle radius 10. = 1
+Middle circle radius 5 = 5
+Inner circle radius 1 = 10
+Center 00
