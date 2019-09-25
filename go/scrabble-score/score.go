@@ -1,39 +1,38 @@
+// Package scrabble is used to determine the srabble score of a word.
 package scrabble
 
-import "fmt"
+import "unicode"
 
-func Score(word string) (int) {
+// Score - takes a word and returns the scrabble score as an int.
+func Score(word string) int {
+	if len(word) == 0 {
+		return 0
+	}
+
 	var score int
-
-	var valueTable [][]rune
-
-	valueTable = [][]rune{
+	var valueTable = [][]rune{
 		[]rune{},
-		[]rune{'a','e', 'i', 'o', 'u','l', 'n', 'r','s','t', 'A','E', 'I', 'O', 'U','L', 'N', 'R','S','T'},
-		[]rune{'d', 'g', 'D', 'G'},
-		[]rune{'b', 'c', 'm', 'p', 'B', 'C', 'M', 'P'},
-		[]rune{'f', 'h', 'v', 'w', 'y', 'F', 'H', 'V', 'W', 'Y'},
-		[]rune{'k', 'K'},
+		[]rune{'a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'},
+		[]rune{'d', 'g'},
+		[]rune{'b', 'c', 'm', 'p'},
+		[]rune{'f', 'h', 'v', 'w', 'y'},
+		[]rune{'k'},
 		[]rune{},
 		[]rune{},
-		[]rune{'j', 'x', 'J', 'X'},
+		[]rune{'j', 'x'},
 		[]rune{},
-		[]rune{'q', 'z', 'Q', 'Z'},
+		[]rune{'q', 'z'},
 	}
 
 	for _, char := range word {
 		for entryIndex, entry := range valueTable {
 			for _, letter := range entry {
-					if char == letter {
-						score += entryIndex
+				if unicode.ToLower(char) == letter {
+					score += entryIndex
 				}
 			}
 		}
 	}
 
 	return score
-}
-
-func print(letter rune, index int) {
-	fmt.Printf("%v, %v\n", string(letter), index)
 }
