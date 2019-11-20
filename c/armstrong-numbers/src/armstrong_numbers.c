@@ -20,10 +20,6 @@ int is_armstrong_number(int num) {
         sum = pow(tempNum, 1);
     }
 
-    if (num == sum) {
-        return 1;
-    } else {
-        return 0;
-    }
+    return num == sum;
 }
 
